@@ -2,72 +2,81 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('Seeding database...');
+  console.log('Seeding database with exact design data...');
 
-  // Clean existing data
   await prisma.slide.deleteMany();
   await prisma.tab.deleteMany();
 
-  // Create Tabs
+  // Tab 1: Learning
   const tab1 = await prisma.tab.create({
     data: {
-      title: 'Our Mission',
+      title: 'Learning',
       orderIndex: 1
     }
   });
 
+  // Tab 2: Technology
   const tab2 = await prisma.tab.create({
     data: {
-      title: 'Our Vision',
+      title: 'Technology',
       orderIndex: 2
     }
   });
 
+  // Tab 3: Communication
   const tab3 = await prisma.tab.create({
     data: {
-      title: 'Core Values',
+      title: 'Communication',
       orderIndex: 3
     }
   });
 
-  // Create Slides for Tab 1
+  // Slides for Learning
   await prisma.slide.create({
     data: {
-      title: 'Empowering Developers',
-      content: 'We build tools that make developers more productive and happier.',
-      imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=600',
+      title: 'Usability enhancement and Training for Transaction Portal for Customers',
+      content: 'Learn More',
+      imageUrl: '/assets/DL-Learning-1.jpg',
       orderIndex: 1,
       tabId: tab1.id
     }
   });
-  
   await prisma.slide.create({
     data: {
-      title: 'Open Source First',
-      content: 'We believe in giving back to the community that made us possible.',
-      imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600&h=600',
+      title: 'Digital Learning Infrastructure 2',
+      content: 'Learn More',
+      imageUrl: '/assets/DL-Learning-1.jpg',
       orderIndex: 2,
       tabId: tab1.id
     }
   });
-
-  // Create Slides for Tab 2
   await prisma.slide.create({
     data: {
-      title: 'Future of Tech',
-      content: 'Anticipating the next wave of technological evolution.',
-      imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600&h=600',
+      title: 'Digital Learning Infrastructure 3',
+      content: 'Learn More',
+      imageUrl: '/assets/DL-Learning-1.jpg',
+      orderIndex: 3,
+      tabId: tab1.id
+    }
+  });
+
+  // Slides for Technology
+  await prisma.slide.create({
+    data: {
+      title: 'Technology Solutions for Enterprise',
+      content: 'Learn More',
+      imageUrl: '/assets/DL-Technology.jpg',
       orderIndex: 1,
       tabId: tab2.id
     }
   });
 
-  // Create Slides for Tab 3
+  // Slides for Communication
   await prisma.slide.create({
     data: {
-      title: 'Integrity',
-      content: 'Doing the right thing, always.',
-      imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600&h=600',
+      title: 'Streamlined Corporate Communication',
+      content: 'Learn More',
+      imageUrl: '/assets/DL-Communication.jpg',
       orderIndex: 1,
       tabId: tab3.id
     }
