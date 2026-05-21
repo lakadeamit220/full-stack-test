@@ -1,47 +1,87 @@
-# Full Stack Test
-WPoets Full Stack Developer Test
+# WPoets Full Stack Developer Test
 
-Hi Full-stacker!
+This project is a full-stack application built for the WPoets Full Stack Developer Test. It implements a dynamic 3-column design with connected sliders, powered by a CRUD backend to manage the tabs and slide content.
 
-Great that you're interested in this exercise! Thanks a lot for making it. The exercise consits of an assignment. It is related to the WPoets working ways. Good luck and we are looking forward to hearing from you soon!
+## Tech Stack
+- **Backend**: Node.js, Express, Prisma ORM, PostgreSQL
+- **Frontend**: React (JavaScript), Tailwind CSS
 
-To complete these assignment you need to fork this repo. When you're done you can push your changes to your own repo (and let us know where to find it ofcourse).
+## Getting Started
 
-<h2>Task</h2>
-<ul>
-  <li>Create a CRUD functionality using PHP, MySQL.</li>
-	<li>Fetch the data to display the section that matches the given design using HTML5, CSS3, jQuery, Bootstrap.</li>
-</ul>
+To run this project locally on your machine:
 
-<h2>Design</h2>
+1. **Setup Database:**
+   Ensure you have PostgreSQL running. You will need to configure a `.env` file in the `backend` folder with your database connection string.
 
-<h5>In Web view</h5>
-<ul>
-  <li>Column 1 is tabs. Each tab is a seperate slider.</li>
-	<li>Clicking on the tab will change the slider in Column 2.</li>
-	<li>
-		Column 2 is a slider connected with column 3.
-		<ul>
-			<li>Which means when the slide in column 2 changes, the image in column 3 will change with it.</li>
-			<li>Controls are attached to column 2 only.</li>
-		</ul>
-	</li>
-	<li>Image in column 3 is a 1:1 image.</li>
-</ul>
+2. **Start the Backend:**
+   ```bash
+   cd backend
+   npm install
+   npx prisma db push
+   # (Optional) Seed the database if a seed script is provided
+   npm run dev
+   ```
 
-<h5>In Mobile view</h5>
-<ul>
-  <li>Column 1 changes to accordion.</li>
-  <li>Column 2 is a slider with images from column 3 as background images.</li>
-</ul>
+3. **Start the Frontend:**
+   Open a new terminal window:
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
 
-<strong>Note: Please refer to the files directory for design files, relevant icons/images and styleguide.</strong>
+4. Open [http://localhost:5173](http://localhost:5173) (or the port Vite provides) in your browser.
 
-<h2>Technical questions</h2>
+---
 
-Please answer the following questions in a markdown file called <code>Answers to technical questions.md</code>
-<ul>
-  <li>How long did you spend on the coding test? What would you add to your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.</li>
-	<li>How would you track down a performance issue in production? Have you ever had to do this?</li>
-	<li>Please describe yourself using JSON.</li>
-</ul>
+## Development Roadmap
+
+### Phase 1: Project & Database Setup
+- Initialize the `frontend` (React + Vite) and `backend` (Node.js) directories.
+- Connect to local PostgreSQL via Prisma environment variables.
+- Define the `Tab` and `Slide` Models.
+- Push the Schema to the database.
+
+### Phase 2: Backend APIs (CRUD)
+- Setup Express server.
+- Implement full CRUD endpoints for `Tabs` and `Slides`.
+- Create a database seed script to populate initial dummy data.
+
+### Phase 3: Frontend Foundation
+- Configure Tailwind CSS for styling.
+- Implement a custom React slider component for the slider functionality.
+
+### Phase 4: Main UI Implementation
+- Build the 3-column desktop layout using Tailwind CSS:
+  - **Left Column**: Tabs to switch between different sliders.
+  - **Middle Column**: The main slider (with controls).
+  - **Right Column**: A 1:1 square image that dynamically changes based on the active slide in the middle column.
+
+### Phase 5: API Integration
+- Connect the React frontend to the Express backend.
+- Fetch Tabs and Slides data dynamically instead of using hardcoded state.
+
+### Phase 6: Mobile Responsiveness
+- Transform the Left Column tabs into an accordion for mobile devices.
+- Update the Middle Column slider to display the Right Column's images as background images on mobile screens.
+
+---
+
+## Database Relationships Example
+
+To understand how the data flows between tables, here is our core structure:
+
+### 1. The Tab Table
+Represents the categories/tabs shown in the first column.
+| id (UUID) | title | orderIndex |
+| :--- | :--- | :--- |
+| `tab-101` | Features | 1 |
+| `tab-102` | Testimonials | 2 |
+
+### 2. The Slide Table (One-to-Many with Tab)
+Each tab has multiple slides. The `tabId` links exactly to its parent Tab.
+| id (UUID) | tabId | title | content | imageUrl | orderIndex |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `slide-001` | `tab-101` | Fast Performance | Loads in under 1s | `/assets/img1.jpg` | 1 |
+| `slide-002` | `tab-101` | Secure | Encrypted data | `/assets/img2.jpg` | 2 |
+| `slide-003` | `tab-102` | Great Product | "I love it" - John | `/assets/img3.jpg` | 1 |
