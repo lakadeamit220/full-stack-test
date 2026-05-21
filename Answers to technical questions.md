@@ -22,16 +22,37 @@ Yes, I have done this before by analyzing slow API endpoints and adding Redis ca
 ```json
 {
   "name": "Amit Lakade",
+  "contact": {
+    "email": "lakadeamit220@gmail.com",
+    "phone": "+91 9168830229",
+    "linkedin": "https://www.linkedin.com/in/amit-lakade-771843217/",
+    "github": "https://github.com/lakadeamit220"
+  },
   "role": "Full Stack Developer",
-  "skills": [
-    "React.js",
-    "Node.js",
-    "Express",
-    "PostgreSQL",
-    "Prisma",
-    "Tailwind CSS"
+  "experience_years": "2+",
+  "summary": "Full Stack Developer with 2+ years of experience designing and developing real-time IoT dashboards and enterprise applications using the MERN stack and PostgreSQL.",
+  "what_i_do_best": [
+    "Develop scalable backend architectures using Node.js and Express.js",
+    "Build real-time data pipelines, IoT dashboards, and analytics platforms",
+    "Design secure REST APIs with authentication and RBAC",
+    "Optimize performance using Redis caching and efficient database queries",
+    "Create responsive UI applications with geospatial and live data visualization",
+    "Deploy and manage production applications using Docker and AWS EC2"
   ],
-  "passion": "Building modern, scalable, and responsive web applications.",
-  "status": "Ready to build awesome things at WPoets!"
+  "technical_skills": {
+    "frontend": ["React.js", "Next.js", "JavaScript", "Tailwind CSS", "Responsive Design", "Framer Motion", "Three.js"],
+    "backend": ["Node.js", "Express.js", "REST APIs", "Middleware Architecture"],
+    "databases": ["MongoDB", "PostgreSQL", "Schema Design", "Query Optimization"],
+    "real_time": ["MQTT", "Socket.io", "WebSockets"],
+    "caching_performance": ["Redis", "API Optimization"],
+    "deployment_devops": ["Docker", "AWS EC2"],
+    "data_visualization": ["Recharts", "React-Leaflet (Geospatial Mapping)"],
+    "security": ["JWT Authentication", "RBAC", "Authorization", "Input Validation"],
+    "state_management": ["Zustand", "React Hooks"],
+    "tools": ["Vite", "Git", "GitHub"],
+    "integrations": ["Web3Forms", "OpenStreetMap Nominatim", "Ambee IoT Platform"],
+    "ai_tools": ["GitHub Copilot", "Cursor", "Antigravity"]
+  },
+  "mindset": "I continuously improve development speed and code quality by incorporating modern AI-assisted tools."
 }
 ```
