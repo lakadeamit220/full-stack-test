@@ -2,83 +2,61 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('Seeding database with exact design data...');
+  console.log('Seeding database with actual design data...');
 
   await prisma.slide.deleteMany();
   await prisma.tab.deleteMany();
 
-  // Tab 1: Learning
-  const tab1 = await prisma.tab.create({
-    data: {
-      title: 'Learning',
-      orderIndex: 1
-    }
+  // Create Tabs
+  const tabLearning = await prisma.tab.create({
+    data: { title: 'Learning', orderIndex: 1 }
+  });
+  const tabTechnology = await prisma.tab.create({
+    data: { title: 'Technology', orderIndex: 2 }
+  });
+  const tabCommunication = await prisma.tab.create({
+    data: { title: 'Communication', orderIndex: 3 }
   });
 
-  // Tab 2: Technology
-  const tab2 = await prisma.tab.create({
-    data: {
-      title: 'Technology',
-      orderIndex: 2
-    }
-  });
-
-  // Tab 3: Communication
-  const tab3 = await prisma.tab.create({
-    data: {
-      title: 'Communication',
-      orderIndex: 3
-    }
-  });
-
-  // Slides for Learning
+  // Create Slides for Learning
   await prisma.slide.create({
     data: {
       title: 'Usability enhancement and Training for Transaction Portal for Customers',
-      content: 'Learn More',
-      imageUrl: '/assets/DL-Learning-1.jpg',
+      content: 'DIGITAL LEARNING INFRASTRUCTURE', // We can use content to store the badge text to keep schema simple
+      imageUrl: '/DL-Learning-1.jpg',
       orderIndex: 1,
-      tabId: tab1.id
+      tabId: tabLearning.id
     }
   });
   await prisma.slide.create({
     data: {
-      title: 'Digital Learning Infrastructure 2',
-      content: 'Learn More',
-      imageUrl: '/assets/DL-Learning-1.jpg',
+      title: 'Advanced Analytics and Data Science Fundamentals',
+      content: 'DIGITAL LEARNING INFRASTRUCTURE',
+      imageUrl: '/DL-Learning-1.jpg',
       orderIndex: 2,
-      tabId: tab1.id
-    }
-  });
-  await prisma.slide.create({
-    data: {
-      title: 'Digital Learning Infrastructure 3',
-      content: 'Learn More',
-      imageUrl: '/assets/DL-Learning-1.jpg',
-      orderIndex: 3,
-      tabId: tab1.id
+      tabId: tabLearning.id
     }
   });
 
-  // Slides for Technology
+  // Create Slides for Technology
   await prisma.slide.create({
     data: {
-      title: 'Technology Solutions for Enterprise',
-      content: 'Learn More',
-      imageUrl: '/assets/DL-Technology.jpg',
+      title: 'Secure and Scalable Cloud Infrastructure Solutions',
+      content: 'TECHNOLOGY INFRASTRUCTURE',
+      imageUrl: '/DL-Technology.jpg',
       orderIndex: 1,
-      tabId: tab2.id
+      tabId: tabTechnology.id
     }
   });
 
-  // Slides for Communication
+  // Create Slides for Communication
   await prisma.slide.create({
     data: {
-      title: 'Streamlined Corporate Communication',
-      content: 'Learn More',
-      imageUrl: '/assets/DL-Communication.jpg',
+      title: 'Effective Corporate Communication Strategies',
+      content: 'COMMUNICATION SYSTEMS',
+      imageUrl: '/DL-Communication.jpg',
       orderIndex: 1,
-      tabId: tab3.id
+      tabId: tabCommunication.id
     }
   });
 
