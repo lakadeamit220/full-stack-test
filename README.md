@@ -2,7 +2,7 @@
 
 Welcome to my submission for the WPoets Full Stack Developer coding assessment. This project demonstrates a complete full-stack application built from scratch to exactly match the provided design mockups and requirements.
 
-## 🚀 Project Overview
+## Project Overview
 
 The application features a dynamic, responsive user interface backed by a robust REST API and a relational database.
 
@@ -11,7 +11,7 @@ The application features a dynamic, responsive user interface backed by a robust
 
 The design has been crafted to match the provided `web-view.png` and `mobile-view.png` pixel-for-pixel.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 This project was built using modern, scalable technologies:
 
@@ -27,7 +27,7 @@ This project was built using modern, scalable technologies:
 
 ---
 
-## ⚙️ Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed on your machine:
 - [Node.js](https://nodejs.org/en/) (v18 or higher)
@@ -35,7 +35,7 @@ Before you begin, ensure you have the following installed on your machine:
 
 ---
 
-## 📖 Installation & Setup Guide
+## Installation & Setup Guide
 
 Follow these steps to run the project locally.
 
@@ -91,16 +91,16 @@ npm run dev
 
 ---
 
-## 🧪 Viewing the Application
+## Viewing the Application
 - **Desktop**: Open your browser to `http://localhost:5173` and view the application in full screen.
 - **Mobile**: Use Chrome DevTools (F12 -> Toggle Device Toolbar) to resize the window and interact with the responsive Accordion layout.
 
-## 📝 Technical Answers
+## Technical Answers
 Please review the `Answers to technical questions.md` file in the root directory for my responses to the technical assessment questions.
 
 ---
 
-## 🗄️ Database Relationships
+## Database Relationships
 
 To understand how the data flows between tables, here is our core structure:
 
@@ -121,7 +121,7 @@ Each tab has multiple slides. The `tabId` links exactly to its parent Tab.
 
 ---
 
-## 🗺️ Development Roadmap
+## Development Roadmap
 Here is the step-by-step roadmap that was followed to build this application:
 
 ### Phase 1: Environment Setup
