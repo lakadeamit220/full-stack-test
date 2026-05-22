@@ -3,19 +3,17 @@
 ### 1. How long did you spend on the coding test? What would you add to your solution if you had more time?
 I spent approximately 4-5 hours on this coding test.
 If I had more time, I would add:
-- **Authentication**: Securing the Express backend APIs using JWT so only authorized users can modify the database.
-- **Local Image Uploads**: Implementing a file upload middleware (like Multer) on the backend so users can upload images directly, rather than using static file paths.
-- **Testing**: Writing basic unit tests for the Express API endpoints and React components to ensure long-term stability.
-- **Advanced Tailwind Animations**: Expanding on the current Tailwind CSS transitions to create more complex and fluid visual effects for the slider.
+- **Error Handling & Validation**: Adding more robust error handling and input validation in the Node.js/Express backend.
+- **Frontend Error Boundaries**: Implementing React Error Boundaries to gracefully handle any unexpected UI crashes.
+- **Loading Skeletons**: Adding UI skeleton loaders while the tabs and slides data are being fetched from the backend, rather than a simple loading text.
 
 ### 2. How would you track down a performance issue in production? Have you ever had to do this?
 To track down a performance issue in production, I would:
-1. **Identify the bottleneck**: Use APM tools (like New Relic, Datadog, or Sentry) to check if the issue is in the frontend, backend, or database.
-2. **Database profiling**: If it's the database, I would look for slow queries, missing indexes, or N+1 query problems (e.g., using Prisma Studio or PostgreSQL `EXPLAIN ANALYZE`).
-3. **Backend profiling**: Check for memory leaks, unoptimized loops, or blocking synchronous operations in Node.js.
-4. **Frontend profiling**: Use Chrome DevTools (Performance tab, React Profiler) to find unnecessary re-renders, large bundle sizes, or slow LCP (Largest Contentful Paint).
+1. **Frontend**: Use Chrome DevTools (Performance tab and React Profiler) to identify slow component renders or large bundle sizes causing slow initial loads.
+2. **Backend**: Check Node.js logs for blocking synchronous operations and monitor API response times.
+3. **Database**: Look for slow queries in PostgreSQL using `EXPLAIN ANALYZE` or check for missing indexes.
 
-Yes, I have done this before by analyzing slow API endpoints and adding Redis caching to significantly reduce response times.
+Yes, in my experience building real-time IoT dashboards, I have had to profile and optimize slow database queries and API endpoints to handle high-frequency data streams efficiently.
 
 ### 3. Please describe yourself using JSON.
 ```json

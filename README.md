@@ -1,73 +1,106 @@
 # WPoets Full Stack Developer Test
 
-This project is a full-stack application built for the WPoets Full Stack Developer Test. It implements a dynamic 3-column design with connected sliders, powered by a CRUD backend to manage the tabs and slide content.
+Welcome to my submission for the WPoets Full Stack Developer coding assessment. This project demonstrates a complete full-stack application built from scratch to exactly match the provided design mockups and requirements.
 
-## Tech Stack
-- **Backend**: Node.js, Express, Prisma ORM, PostgreSQL
-- **Frontend**: React (JavaScript), Tailwind CSS
+## 🚀 Project Overview
 
-## Getting Started
+The application features a dynamic, responsive user interface backed by a robust REST API and a relational database.
 
-To run this project locally on your machine:
+- **Desktop View**: A 3-column layout where the left column contains clickable tabs, the middle column features a slider with controls, and the right column displays a dynamic 1:1 image synchronized with the active slide.
+- **Mobile View**: Transforms into a sleek accordion layout where the selected tab expands to show the slider, and the image acts as a blended background for the content.
 
-1. **Setup Database:**
-   Ensure you have PostgreSQL running. You will need to configure a `.env` file in the `backend` folder with your database connection string.
+The design has been crafted to match the provided `web-view.png` and `mobile-view.png` pixel-for-pixel.
 
-2. **Start the Backend:**
-   ```bash
-   cd backend
-   npm install
-   npx prisma db push
-   # (Optional) Seed the database if a seed script is provided
-   npm run dev
-   ```
+## 🛠️ Tech Stack
 
-3. **Start the Frontend:**
-   Open a new terminal window:
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
+This project was built using modern, scalable technologies:
 
-4. Open [http://localhost:5173](http://localhost:5173) (or the port Vite provides) in your browser.
+**Frontend**
+- **React.js (Vite)**: For building the dynamic user interface.
+- **Tailwind CSS v4**: For responsive styling, grid layouts, and smooth animations.
+- **Axios**: For handling API requests.
+
+**Backend**
+- **Node.js & Express.js**: For building the RESTful API using ES Modules.
+- **PostgreSQL**: As the relational database.
+- **Prisma ORM (v5)**: For database modeling, migrations, and type-safe queries.
 
 ---
 
-## Development Roadmap
+## ⚙️ Prerequisites
 
-### Phase 1: Project & Database Setup
-- Initialize the `frontend` (React + Vite) and `backend` (Node.js) directories.
-- Connect to local PostgreSQL via Prisma environment variables.
-- Define the `Tab` and `Slide` Models.
-- Push the Schema to the database.
-
-### Phase 2: Backend APIs (CRUD)
-- Setup Express server.
-- Implement full CRUD endpoints for `Tabs` and `Slides`.
-- Create a database seed script to populate initial dummy data.
-
-### Phase 3: Frontend Foundation
-- Configure Tailwind CSS for styling.
-- Implement a custom React slider component for the slider functionality.
-
-### Phase 4: Main UI Implementation
-- Build the 3-column desktop layout using Tailwind CSS:
-  - **Left Column**: Tabs to switch between different sliders.
-  - **Middle Column**: The main slider (with controls).
-  - **Right Column**: A 1:1 square image that dynamically changes based on the active slide in the middle column.
-
-### Phase 5: API Integration
-- Connect the React frontend to the Express backend.
-- Fetch Tabs and Slides data dynamically instead of using hardcoded state.
-
-### Phase 6: Mobile Responsiveness
-- Transform the Left Column tabs into an accordion for mobile devices.
-- Update the Middle Column slider to display the Right Column's images as background images on mobile screens.
+Before you begin, ensure you have the following installed on your machine:
+- [Node.js](https://nodejs.org/en/) (v18 or higher)
+- [PostgreSQL](https://www.postgresql.org/download/)
 
 ---
 
-## Database Relationships Example
+## 📖 Installation & Setup Guide
+
+Follow these steps to run the project locally.
+
+### 1. Clone the repository
+```bash
+git clone <your-repo-link-here>
+cd full-stack-test
+```
+
+### 2. Backend Setup
+Navigate to the backend directory and install dependencies:
+```bash
+cd backend
+npm install
+```
+
+**Configure the Database:**
+1. Open PostgreSQL and create a new database named `wpoets_test` (or whatever you prefer).
+2. Rename `.env.example` to `.env` (or create a new `.env` file in the `backend` folder) and add your connection string:
+```env
+DATABASE_URL="postgresql://postgres:root@localhost:5432/wpoets_test?schema=public"
+```
+*(Update `postgres` and `root` to match your local PostgreSQL username and password).*
+
+**Initialize the Database:**
+Run the following commands to push the schema and seed the database with the mockup data and images:
+```bash
+npx prisma generate
+npx prisma db push
+node seed.js
+```
+
+**Start the Backend Server:**
+```bash
+npm run dev
+```
+*The backend will now be running at `http://localhost:5000`.*
+
+---
+
+### 3. Frontend Setup
+Open a **new terminal window**, navigate to the frontend directory, and install dependencies:
+```bash
+cd frontend
+npm install
+```
+
+**Start the Frontend Server:**
+```bash
+npm run dev
+```
+*The frontend will now be running at `http://localhost:5173`.*
+
+---
+
+## 🧪 Viewing the Application
+- **Desktop**: Open your browser to `http://localhost:5173` and view the application in full screen.
+- **Mobile**: Use Chrome DevTools (F12 -> Toggle Device Toolbar) to resize the window and interact with the responsive Accordion layout.
+
+## 📝 Technical Answers
+Please review the `Answers to technical questions.md` file in the root directory for my responses to the technical assessment questions.
+
+---
+
+## 🗄️ Database Relationships
 
 To understand how the data flows between tables, here is our core structure:
 
@@ -85,3 +118,44 @@ Each tab has multiple slides. The `tabId` links exactly to its parent Tab.
 | `slide-001` | `tab-101` | Fast Performance | Loads in under 1s | `/assets/img1.jpg` | 1 |
 | `slide-002` | `tab-101` | Secure | Encrypted data | `/assets/img2.jpg` | 2 |
 | `slide-003` | `tab-102` | Great Product | "I love it" - John | `/assets/img3.jpg` | 1 |
+
+---
+
+## 🗺️ Development Roadmap
+Here is the step-by-step roadmap that was followed to build this application:
+
+### Phase 1: Environment Setup
+- Initialized Node.js backend & React + Vite frontend.
+- Installed and configured Tailwind CSS v4.
+- Cleaned up root directory and added `.gitignore`.
+- Installed Express, dotenv, cors, and Prisma.
+
+### Phase 2: Database Setup & Prisma
+- Configured PostgreSQL database connection.
+- Created `Tab` and `Slide` schemas using Prisma.
+- Generated Prisma Client.
+
+### Phase 3: Express Backend APIs (CRUD)
+- Built main Express entry point with CORS and JSON parsing.
+- Implemented full CRUD REST APIs for Tabs and Slides.
+- Created `seed.js` script to populate database with exact mockups.
+
+### Phase 4: Frontend State & API Integration
+- Configured Axios for API requests.
+- Fetched active Tabs and Slides data into React state.
+
+### Phase 5: Desktop UI Implementation (3 Columns)
+- **Left Column (Tabs):** Mapped dynamic tabs with SVG icons.
+- **Middle Column (Custom Slider):** Displayed active slide data and pagination dots.
+- **Right Column (Image Display):** Rendered 1:1 image mapped to the active slide.
+
+### Phase 6: Mobile Responsiveness
+- Implemented Tailwind `md:` media queries for mobile-first design.
+- Transformed left column tabs into an interactive accordion.
+- Merged the slider content with a background image overlay for mobile view.
+
+### Phase 7: Final Polish
+- Refined UI to exactly match `web-view.png` and `mobile-view.png` mockups.
+- Answered technical questions truthfully based on actual project stack.
+
+Thank you for reviewing my code!
