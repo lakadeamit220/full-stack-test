@@ -46,9 +46,9 @@ function App() {
       
       {/* Header Section */}
       <div className="text-center text-white mb-10">
-        <h1 className="text-3xl md:text-4xl font-normal mb-3 tracking-wide">DelphianLogic in Action</h1>
-        <p className="text-gray-300 text-sm md:text-base font-light">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+        <h1 className="text-3xl md:text-4xl font-normal mb-3 tracking-wide">Empowering Digital Transformation</h1>
+        <p className="text-gray-300 text-sm md:text-base font-light max-w-2xl mx-auto">
+          Discover how our integrated solutions in learning, technology, and communication drive growth and innovation for your enterprise.
         </p>
       </div>
       

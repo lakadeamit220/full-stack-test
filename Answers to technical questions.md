@@ -3,11 +3,10 @@
 ### 1. How long did you spend on the coding test? What would you add to your solution if you had more time?
 I spent approximately 4-5 hours on this coding test.
 If I had more time, I would add:
-- **Authentication & Authorization**: To secure the backend APIs so only admins can manage Tabs and Slides.
-- **Image Upload functionality**: Using AWS S3 or Cloudinary to upload images via the backend instead of using direct URLs.
-- **Animations**: Using Framer Motion for more complex and fluid slider transitions instead of pure CSS transitions.
-- **Unit & Integration Testing**: Using Jest for the Express API and React Testing Library for the frontend components to ensure stability.
-- **TypeScript support**: Migrating the frontend from JavaScript to TypeScript for better type safety and developer experience.
+- **Authentication**: Securing the Express backend APIs using JWT so only authorized users can modify the database.
+- **Local Image Uploads**: Implementing a file upload middleware (like Multer) on the backend so users can upload images directly, rather than using static file paths.
+- **Testing**: Writing basic unit tests for the Express API endpoints and React components to ensure long-term stability.
+- **Advanced Tailwind Animations**: Expanding on the current Tailwind CSS transitions to create more complex and fluid visual effects for the slider.
 
 ### 2. How would you track down a performance issue in production? Have you ever had to do this?
 To track down a performance issue in production, I would:
