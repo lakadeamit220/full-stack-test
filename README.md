@@ -41,7 +41,7 @@ Follow these steps to run the project locally.
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-link-here>
+git clone https://github.com/lakadeamit220/full-stack-test.git
 cd full-stack-test
 ```
 
